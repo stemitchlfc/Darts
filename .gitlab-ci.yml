@@ -1,0 +1,19 @@
+image: gradle:alpine
+
+variables:
+  GRADLE_USER_HOME: $CI_PROJECT_DIR/.gradle
+
+stages:          # List of stages for jobs, and their order of execution
+  - test_job
+
+
+before_script:
+  - export GRADLE_USER_HOME
+  - chmod +x gradlew
+  - pwd
+  - ls
+
+test-job:
+  stage: test_job
+  script:
+    - echo "job is running in gitlab"
